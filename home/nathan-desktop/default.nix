@@ -7,7 +7,7 @@
     ../capabilities/git
     ../capabilities/firefox
     ../capabilities/shell.nix
-    #../capabilities/gaming
+    ../capabilities/gaming
   ];
   
   home = {
