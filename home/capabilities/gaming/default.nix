@@ -7,7 +7,9 @@
   home.packages = with pkgs; [
     # Tool to manage Proton installations
     protonup-qt
-    protonplus
+
+    lutris
+    heroic
   ];
 
 }

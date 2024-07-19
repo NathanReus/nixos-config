@@ -9,6 +9,8 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../hardware/nvidia.nix
+      ../hardware/mechanical-keyboard.nix
+      ./virtualisation.nix
       ./audio.nix
       ./hypr.nix
       ./firewall.nix
@@ -84,6 +86,7 @@
       git
       kitty
       helix
+      gnome.nautilus
     ];
 
     variables = {
@@ -94,12 +97,14 @@
     #shells = [ pkgs.zsh ];
   };
 
+  services = {
+    flatpak.enable = true;
+  };
+
   # Recommended authentication agent for Hypr
   security.polkit.enable = true;
 
   programs.dconf.enable = true;
-
-  #programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

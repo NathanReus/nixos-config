@@ -37,8 +37,6 @@
 
       # apps
       discord
-
-      # system
     ];
   };
 

@@ -12,6 +12,9 @@
     
     neofetch
 
+    # Wayland event viewer, handy tool
+    wev
+
     # CLI tool to send commands to MPRIS clients for multimedia control
     playerctl
   ];
@@ -126,8 +129,7 @@
 
       windowrulev2 = [
         "suppressevent maximize, class:.*"
-        "float, class:firefox, title:^Extension: \(Bitwarden Password Manager\) - Bitwarden — Mozilla Firefox$"
-        "float, class:steam, title:Friends List"
+        "float, class:steam, title:^(?!(Steam)$).*$"
         "workspace 1, class:discord"
       ];
 
@@ -143,6 +145,15 @@
         "$mainMod SHIFT, T, togglefloating,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, R, exec, $menu"
+        "$mainMod, F, fullscreen"
+
+        # Multimedia
+        ", XF86AudioLowerVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 2%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPlay, exec, playerctl play-pause"
 
         # Move focus with mod + arrow keys
         "$mainMod, left, movefocus, l"
