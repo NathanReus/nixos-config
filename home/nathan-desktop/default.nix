@@ -37,6 +37,8 @@
 
       # apps
       discord
+
+      rpi-imager
     ];
   };
 
